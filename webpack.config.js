@@ -22,6 +22,12 @@ module.exports = {
         }
       },
       {
+        test: /\.(eot|ttf|svg|woff)$/,
+        use: {
+          loader: 'file-loader'
+        }
+      },
+      {
         test: /\.scss$/,
         use: [
           // 执行顺序：从下到上，从右到左
@@ -29,8 +35,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
-              modules: true
+              importLoaders: 2
             }
           },
           'sass-loader',
