@@ -1,10 +1,19 @@
 const path = require('path')
+// html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
+const HtmlWebpackplugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+// plugin 可以在webpack运行到某一时刻帮你做一些事情
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    sub: './src/index.js'
+  },
   output: {
-    filename: 'bundle.js',
+    publicPath: 'http://cdn.com.cn',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -49,5 +58,11 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackplugin({
+      template: 'src/index.html'
+    }),
+    new CleanWebpackPlugin()
+  ]
 }
