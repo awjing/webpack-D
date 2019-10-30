@@ -7,12 +7,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
+  devtool: 'cheap-module-eval-source-map', // development
+  // devtool: 'cheap-modulesource-map', // production
   entry: {
-    main: './src/index.js',
-    sub: './src/index.js'
+    main: './src/index.js'
   },
   output: {
-    publicPath: 'http://cdn.com.cn',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
