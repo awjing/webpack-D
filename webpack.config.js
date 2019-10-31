@@ -2,6 +2,7 @@ const path = require('path')
 // html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
 const HtmlWebpackplugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
 // plugin 可以在webpack运行到某一时刻帮你做一些事情
 
@@ -16,6 +17,8 @@ module.exports = {
     port: 8081,
     contentBase: './dist',
     open: true, // 自动打开浏览器并访问服务器地址
+    hot: true,
+    hotOnly: true,
     proxy: {
       '/api': 'http://localhost:3000'
     }
@@ -61,6 +64,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.css$/,
+        use: [
+          // 执行顺序：从下到上，从右到左
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ]
+      },
+      {
         test: /\.vue$/,
         use: {
           loader: 'vue-loader'
@@ -72,6 +84,7 @@ module.exports = {
     new HtmlWebpackplugin({
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
