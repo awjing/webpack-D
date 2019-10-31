@@ -9,7 +9,7 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map', // development
-  // devtool: 'cheap-modulesource-map', // production
+  // devtool: 'cheap-module-source-map', // production
   entry: {
     main: './src/index.js'
   },
