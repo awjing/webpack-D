@@ -12,7 +12,16 @@ module.exports = {
   entry: {
     main: './src/index.js'
   },
+  devServer: {
+    port: 8081,
+    contentBase: './dist',
+    open: true, // 自动打开浏览器并访问服务器地址
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }
+  },
   output: {
+    publicPath: '/',
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
