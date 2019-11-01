@@ -10,18 +10,22 @@
 //   document.body.appendChild(div)
 // }
 
-import counter from './counter.js'
-import number from './number.js'
+// // css loader底层已经实现HMR，不需要手动实现
+// // 使用vue，vue底层也已经实现HMR
+// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）
+// if (module.hot) {
+//   module.hot.accept('./number', () => {
+//     document.body.removeChild(document.getElementById('number'))
+//     number()
+//   })
+// }
 
-counter()
-number()
+import "@babel/polyfill";
+const arr = [
+  new Promise(() => {}),
+  new Promise(() => {})
+]
 
-// css loader底层已经实现HMR，不需要手动实现
-// 使用vue，vue底层也已经实现HMR
-// 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）
-if (module.hot) {
-  module.hot.accept('./number', () => {
-    document.body.removeChild(document.getElementById('number'))
-    number()
-  })
-}
+arr.map(item => {
+  console.log(item)
+})

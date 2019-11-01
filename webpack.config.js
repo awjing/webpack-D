@@ -30,6 +30,19 @@ module.exports = {
   },
   module: {
     rules: [
+      { 
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: [['@babel/preset-env'], {
+            target: {
+              chrome: "67" // 设置在chrome67以上的代码使用promise，因此打包时候不会转es5，因为chorme已经支持
+            },
+            useBuiltIns: 'usage'
+          }]
+        }
+      },
       {
         test: /\.(jpg|png|gif)$/,
         use: {
