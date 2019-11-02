@@ -21,11 +21,18 @@
 // }
 
 // import "@babel/polyfill";
-const arr = [
-  new Promise(() => {}),
-  new Promise(() => {})
-]
+// const arr = [
+//   new Promise(() => {}),
+//   new Promise(() => {})
+// ]
 
-arr.map(item => {
-  console.log(item)
-})
+// arr.map(item => {
+//   console.log(item)
+// })
+
+
+// Tree Shaking只支持 ES Module模块的引入方式（import）
+// 不支持require（import静态、require动态）
+import { add } from './math.js'
+
+add(2, 3)

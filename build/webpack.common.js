@@ -2,31 +2,16 @@ const path = require('path')
 // html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
 const HtmlWebpackplugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const webpack = require('webpack')
-
 // plugin 可以在webpack运行到某一时刻帮你做一些事情
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map', // development
-  // devtool: 'cheap-module-source-map', // production
   entry: {
     main: './src/index.js'
   },
-  devServer: {
-    port: 8081,
-    contentBase: './dist',
-    open: true, // 自动打开浏览器并访问服务器地址
-    hot: true,
-    hotOnly: true,
-    proxy: {
-      '/api': 'http://localhost:3000'
-    }
-  },
   output: {
-    publicPath: '/',
+    // publicPath: '',   // 添加公共地址--例：CDN等
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, '../dist')
   },
   module: {
     rules: [
@@ -107,7 +92,8 @@ module.exports = {
     new HtmlWebpackplugin({
       template: 'src/index.html'
     }),
-    new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    // new CleanWebpackPlugin({
+    //   cleanOnceBeforeBuildPatterns: ['../dist'],
+    // })  -- 未解决问题 --
+  ],
 }
