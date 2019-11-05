@@ -33,6 +33,20 @@
 
 // Tree Shaking只支持 ES Module模块的引入方式（import）
 // 不支持require（import静态、require动态）
-import { add } from './math.js'
+// import { add } from './math.js'
 
-add(2, 3)
+// add(2, 3)
+
+
+// 第一种方式
+// 首次访问页面时，加载main.js(2mb)
+// 打包文件会很大，加载时间会长
+// main.js 2mb
+// 重新访问我们的页面，又要加载2mb的内容
+
+console.log(_.join(['a', 'b', 'c'], '***'))
+
+// main.js被拆成lodash.js(1mb)和main.js(imb)
+// 当页面业务逻辑发上变化时。只要加载main.js即可(1mb)
+
+// Code Splitting 
