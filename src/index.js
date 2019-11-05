@@ -2,7 +2,7 @@
 
 // var btn = document.createElement('button')
 // btn.innerHTML = '新增'
-// document.body.appendChild(btn)
+// document.body.appendChild(btn
 
 // btn.onclick = function () {
 //   var div = document.createElement('div')
@@ -38,15 +38,20 @@
 // add(2, 3)
 
 
-// 第一种方式
-// 首次访问页面时，加载main.js(2mb)
-// 打包文件会很大，加载时间会长
-// main.js 2mb
-// 重新访问我们的页面，又要加载2mb的内容
-
-console.log(_.join(['a', 'b', 'c'], '***'))
-
-// main.js被拆成lodash.js(1mb)和main.js(imb)
-// 当页面业务逻辑发上变化时。只要加载main.js即可(1mb)
-
 // Code Splitting 
+// 代码分割，和webpack无关
+// webpack中实现代码分割，两种方式
+// 1、同步代码：只需要在webpack.common.js做optimization的配置即可
+// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割
+
+function getComponent () {
+  return import('lodash').then(({default: _ }) => {
+    var element = document.createElement('div')
+    element.innerHTML = _.join(['wang', 'jing'], '-')
+    return element
+  })
+}
+
+getComponent().then(element => {
+  document.body.appendChild(element)
+})
