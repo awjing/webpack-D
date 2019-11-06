@@ -98,7 +98,26 @@ module.exports = {
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      minSize: 30000, // lodash 1Mb
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      automaticNameMaxLength: 30,
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10, // 数值越大优先级越高
+          filename: 'vendors.js'
+        },
+        default: {
+          priority: -20,
+          reuseExistingChunk: true, // 一个模块被打包过将不再打包，会复用之前打包过的文件
+          filename: 'common.js'
+        }
+      }
     }
   }
 }
