@@ -3,7 +3,7 @@
 /******/ 	function webpackJsonpCallback(data) {
 /******/ 		var chunkIds = data[0];
 /******/ 		var moreModules = data[1];
-/******/ 		var executeModules = data[2];
+/******/
 /******/
 /******/ 		// add "moreModules" to the modules object,
 /******/ 		// then flag all "chunkIds" as loaded and fire callback
@@ -26,29 +26,8 @@
 /******/ 			resolves.shift()();
 /******/ 		}
 /******/
-/******/ 		// add entry modules from loaded chunk to deferred list
-/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
-/******/
-/******/ 		// run deferred modules when all chunks ready
-/******/ 		return checkDeferredModules();
 /******/ 	};
-/******/ 	function checkDeferredModules() {
-/******/ 		var result;
-/******/ 		for(var i = 0; i < deferredModules.length; i++) {
-/******/ 			var deferredModule = deferredModules[i];
-/******/ 			var fulfilled = true;
-/******/ 			for(var j = 1; j < deferredModule.length; j++) {
-/******/ 				var depId = deferredModule[j];
-/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
-/******/ 			}
-/******/ 			if(fulfilled) {
-/******/ 				deferredModules.splice(i--, 1);
-/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
-/******/ 			}
-/******/ 		}
 /******/
-/******/ 		return result;
-/******/ 	}
 /******/ 	function hotDisposeChunk(chunkId) {
 /******/ 		delete installedChunks[chunkId];
 /******/ 	}
@@ -113,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "cfa3ff8d5a44d0519131";
+/******/ 	var hotCurrentHash = "91a276725035ca856fc0";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -763,7 +742,12 @@
 /******/ 		"main": 0
 /******/ 	};
 /******/
-/******/ 	var deferredModules = [];
+/******/
+/******/
+/******/ 	// script path function
+/******/ 	function jsonpScriptSrc(chunkId) {
+/******/ 		return __webpack_require__.p + "" + ({"vendors~lodash":"vendors~lodash"}[chunkId]||chunkId) + ".js"
+/******/ 	}
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -792,6 +776,67 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		var promises = [];
+/******/
+/******/
+/******/ 		// JSONP chunk loading for javascript
+/******/
+/******/ 		var installedChunkData = installedChunks[chunkId];
+/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
+/******/
+/******/ 			// a Promise means "currently loading".
+/******/ 			if(installedChunkData) {
+/******/ 				promises.push(installedChunkData[2]);
+/******/ 			} else {
+/******/ 				// setup Promise in chunk cache
+/******/ 				var promise = new Promise(function(resolve, reject) {
+/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
+/******/ 				});
+/******/ 				promises.push(installedChunkData[2] = promise);
+/******/
+/******/ 				// start chunk loading
+/******/ 				var script = document.createElement('script');
+/******/ 				var onScriptComplete;
+/******/
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.src = jsonpScriptSrc(chunkId);
+/******/
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				onScriptComplete = function (event) {
+/******/ 					// avoid mem leaks in IE.
+/******/ 					script.onerror = script.onload = null;
+/******/ 					clearTimeout(timeout);
+/******/ 					var chunk = installedChunks[chunkId];
+/******/ 					if(chunk !== 0) {
+/******/ 						if(chunk) {
+/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 							var realSrc = event && event.target && event.target.src;
+/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 							error.name = 'ChunkLoadError';
+/******/ 							error.type = errorType;
+/******/ 							error.request = realSrc;
+/******/ 							chunk[1](error);
+/******/ 						}
+/******/ 						installedChunks[chunkId] = undefined;
+/******/ 					}
+/******/ 				};
+/******/ 				var timeout = setTimeout(function(){
+/******/ 					onScriptComplete({ type: 'timeout', target: script });
+/******/ 				}, 120000);
+/******/ 				script.onerror = script.onload = onScriptComplete;
+/******/ 				document.head.appendChild(script);
+/******/ 			}
+/******/ 		}
+/******/ 		return Promise.all(promises);
+/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -845,6 +890,9 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
@@ -856,10 +904,8 @@
 /******/ 	var parentJsonpFunction = oldJsonpFunction;
 /******/
 /******/
-/******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/index.js","vendors~main"]);
-/******/ 	// run deferred modules when ready
-/******/ 	return checkDeferredModules();
+/******/ 	// Load entry module and return exports
+/******/ 	return hotCreateRequire("./src/index.js")(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -868,12 +914,11 @@
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! no exports provided */
+/*! no static exports found */
 /*! all exports used */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);\n// import './style.css'\n// var btn = document.createElement('button')\n// btn.innerHTML = '新增'\n// document.body.appendChild(btn\n// btn.onclick = function () {\n//   var div = document.createElement('div')\n//   div.innerHTML = 'item'\n//   document.body.appendChild(div)\n// }\n// // css loader底层已经实现HMR，不需要手动实现\n// // 使用vue，vue底层也已经实现HMR\n// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）\n// if (module.hot) {\n//   module.hot.accept('./number', () => {\n//     document.body.removeChild(document.getElementById('number'))\n//     number()\n//   })\n// }\n// import \"@babel/polyfill\";\n// const arr = [\n//   new Promise(() => {}),\n//   new Promise(() => {})\n// ]\n// arr.map(item => {\n//   console.log(item)\n// })\n// Tree Shaking只支持 ES Module模块的引入方式（import）\n// 不支持require（import静态、require动态）\n// import { add } from './math.js'\n// add(2, 3)\n// Code Splitting \n// 代码分割，和webpack无关\n// webpack中实现代码分割，两种方式\n// 1、同步代码：只需要在webpack.common.js做optimization的配置即可\n// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割\n//同步方式\n\n\nvar element = document.createElement('div');\nelement.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default.a.join(['wang', 'jing'], '-');\ndocument.body.appendChild(element); // 异步方式\n// function getComponent () {\n//   return import(/* webpackChunkName:\"lodash\" */ 'lodash').then(({default: _ }) => {\n//     var element = document.createElement('div')\n//     element.innerHTML = _.join(['wang', 'jing'], '-')\n//     return element\n//   })\n// }\n// getComponent().then(element => {\n//   document.body.appendChild(element)\n// })\n// import test from './test.js'\n// console.log(test.name)//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvaW5kZXguanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanM/YjYzNSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBpbXBvcnQgJy4vc3R5bGUuY3NzJ1xuXG4vLyB2YXIgYnRuID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJylcbi8vIGJ0bi5pbm5lckhUTUwgPSAn5paw5aKeJ1xuLy8gZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChidG5cblxuLy8gYnRuLm9uY2xpY2sgPSBmdW5jdGlvbiAoKSB7XG4vLyAgIHZhciBkaXYgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKVxuLy8gICBkaXYuaW5uZXJIVE1MID0gJ2l0ZW0nXG4vLyAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQoZGl2KVxuLy8gfVxuXG4vLyAvLyBjc3MgbG9hZGVy5bqV5bGC5bey57uP5a6e546wSE1S77yM5LiN6ZyA6KaB5omL5Yqo5a6e546wXG4vLyAvLyDkvb/nlKh2dWXvvIx2dWXlupXlsYLkuZ/lt7Lnu4/lrp7njrBITVJcbi8vIC8vIOWunueOsEhNUu+8iOW8leWFpeesrOS4ieaWueacquWunueOsEhNUuebuOWFs+eahO+8jOmcgOimgeaJi+WKqOWunueOsEhNUu+8iVxuLy8gaWYgKG1vZHVsZS5ob3QpIHtcbi8vICAgbW9kdWxlLmhvdC5hY2NlcHQoJy4vbnVtYmVyJywgKCkgPT4ge1xuLy8gICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ251bWJlcicpKVxuLy8gICAgIG51bWJlcigpXG4vLyAgIH0pXG4vLyB9XG5cbi8vIGltcG9ydCBcIkBiYWJlbC9wb2x5ZmlsbFwiO1xuLy8gY29uc3QgYXJyID0gW1xuLy8gICBuZXcgUHJvbWlzZSgoKSA9PiB7fSksXG4vLyAgIG5ldyBQcm9taXNlKCgpID0+IHt9KVxuLy8gXVxuXG4vLyBhcnIubWFwKGl0ZW0gPT4ge1xuLy8gICBjb25zb2xlLmxvZyhpdGVtKVxuLy8gfSlcblxuXG4vLyBUcmVlIFNoYWtpbmflj6rmlK/mjIEgRVMgTW9kdWxl5qih5Z2X55qE5byV5YWl5pa55byP77yIaW1wb3J077yJXG4vLyDkuI3mlK/mjIFyZXF1aXJl77yIaW1wb3J06Z2Z5oCB44CBcmVxdWlyZeWKqOaAge+8iVxuLy8gaW1wb3J0IHsgYWRkIH0gZnJvbSAnLi9tYXRoLmpzJ1xuXG4vLyBhZGQoMiwgMylcblxuXG4vLyBDb2RlIFNwbGl0dGluZyBcbi8vIOS7o+eggeWIhuWJsu+8jOWSjHdlYnBhY2vml6DlhbNcbi8vIHdlYnBhY2vkuK3lrp7njrDku6PnoIHliIblibLvvIzkuKTnp43mlrnlvI9cbi8vIDHjgIHlkIzmraXku6PnoIHvvJrlj6rpnIDopoHlnKh3ZWJwYWNrLmNvbW1vbi5qc+WBmm9wdGltaXphdGlvbueahOmFjee9ruWNs+WPr1xuLy8gMuOAgeW8guatpeS7o+egge+8iGltcG9ydO+8iTog5byC5q2l5Luj56CB77yM5peg6ZyA5YGa5Lu75L2V6YWN572u77yM5Lya6Ieq5Yqo6L+b6KGM5Luj56CB5YiG5YmyXG5cbi8v5ZCM5q2l5pa55byPXG5pbXBvcnQgXyBmcm9tICdsb2Rhc2gnXG5pbXBvcnQganF1ZXJ5IGZyb20gJ2pxdWVyeSdcbnZhciBlbGVtZW50ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2JylcbmVsZW1lbnQuaW5uZXJIVE1MID0gXy5qb2luKFsnd2FuZycsICdqaW5nJ10sICctJylcbmRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQoZWxlbWVudClcblxuXG4vLyDlvILmraXmlrnlvI9cbi8vIGZ1bmN0aW9uIGdldENvbXBvbmVudCAoKSB7XG4vLyAgIHJldHVybiBpbXBvcnQoLyogd2VicGFja0NodW5rTmFtZTpcImxvZGFzaFwiICovICdsb2Rhc2gnKS50aGVuKCh7ZGVmYXVsdDogXyB9KSA9PiB7XG4vLyAgICAgdmFyIGVsZW1lbnQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKVxuLy8gICAgIGVsZW1lbnQuaW5uZXJIVE1MID0gXy5qb2luKFsnd2FuZycsICdqaW5nJ10sICctJylcbi8vICAgICByZXR1cm4gZWxlbWVudFxuLy8gICB9KVxuLy8gfVxuXG4vLyBnZXRDb21wb25lbnQoKS50aGVuKGVsZW1lbnQgPT4ge1xuLy8gICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGVsZW1lbnQpXG4vLyB9KVxuXG5cbi8vIGltcG9ydCB0ZXN0IGZyb20gJy4vdGVzdC5qcydcbi8vIGNvbnNvbGUubG9nKHRlc3QubmFtZSkiXSwibWFwcGluZ3MiOiJBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUVBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBR0E7QUFDQTtBQUNBO0FBRUE7QUFHQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBSUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFHQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/index.js\n");
+eval("// import './style.css'\n// var btn = document.createElement('button')\n// btn.innerHTML = '新增'\n// document.body.appendChild(btn\n// btn.onclick = function () {\n//   var div = document.createElement('div')\n//   div.innerHTML = 'item'\n//   document.body.appendChild(div)\n// }\n// // css loader底层已经实现HMR，不需要手动实现\n// // 使用vue，vue底层也已经实现HMR\n// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）\n// if (module.hot) {\n//   module.hot.accept('./number', () => {\n//     document.body.removeChild(document.getElementById('number'))\n//     number()\n//   })\n// }\n// import \"@babel/polyfill\";\n// const arr = [\n//   new Promise(() => {}),\n//   new Promise(() => {})\n// ]\n// arr.map(item => {\n//   console.log(item)\n// })\n// Tree Shaking只支持 ES Module模块的引入方式（import）\n// 不支持require（import静态、require动态）\n// import { add } from './math.js'\n// add(2, 3)\n// Code Splitting \n// 代码分割，和webpack无关\n// webpack中实现代码分割，两种方式\n// 1、同步代码：只需要在webpack.common.js做optimization的配置即可\n// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割\n//同步方式\n// import _ from 'lodash'\n// var element = document.createElement('div')\n// element.innerHTML = _.join(['wang', 'jing'], '-')\n// document.body.appendChild(element)\n// 异步方式\nasync function getComponent() {\n  const {\n    default: _\n  } = await __webpack_require__.e(/*! import() | lodash */ \"vendors~lodash\").then(__webpack_require__.t.bind(null, /*! lodash */ \"./node_modules/lodash/lodash.js\", 7));\n  const element = document.createElement('div');\n  element.innerHTML = _.join(['wang', 'jing'], '-');\n  return element;\n}\n\ndocument.addEventListener('click', () => {\n  getComponent().then(element => {\n    document.body.appendChild(element);\n  });\n}); // import test from './test.js'\n// console.log(test.name)//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvaW5kZXguanMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanM/YjYzNSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBpbXBvcnQgJy4vc3R5bGUuY3NzJ1xuXG4vLyB2YXIgYnRuID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJylcbi8vIGJ0bi5pbm5lckhUTUwgPSAn5paw5aKeJ1xuLy8gZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChidG5cblxuLy8gYnRuLm9uY2xpY2sgPSBmdW5jdGlvbiAoKSB7XG4vLyAgIHZhciBkaXYgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKVxuLy8gICBkaXYuaW5uZXJIVE1MID0gJ2l0ZW0nXG4vLyAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQoZGl2KVxuLy8gfVxuXG4vLyAvLyBjc3MgbG9hZGVy5bqV5bGC5bey57uP5a6e546wSE1S77yM5LiN6ZyA6KaB5omL5Yqo5a6e546wXG4vLyAvLyDkvb/nlKh2dWXvvIx2dWXlupXlsYLkuZ/lt7Lnu4/lrp7njrBITVJcbi8vIC8vIOWunueOsEhNUu+8iOW8leWFpeesrOS4ieaWueacquWunueOsEhNUuebuOWFs+eahO+8jOmcgOimgeaJi+WKqOWunueOsEhNUu+8iVxuLy8gaWYgKG1vZHVsZS5ob3QpIHtcbi8vICAgbW9kdWxlLmhvdC5hY2NlcHQoJy4vbnVtYmVyJywgKCkgPT4ge1xuLy8gICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ251bWJlcicpKVxuLy8gICAgIG51bWJlcigpXG4vLyAgIH0pXG4vLyB9XG5cbi8vIGltcG9ydCBcIkBiYWJlbC9wb2x5ZmlsbFwiO1xuLy8gY29uc3QgYXJyID0gW1xuLy8gICBuZXcgUHJvbWlzZSgoKSA9PiB7fSksXG4vLyAgIG5ldyBQcm9taXNlKCgpID0+IHt9KVxuLy8gXVxuXG4vLyBhcnIubWFwKGl0ZW0gPT4ge1xuLy8gICBjb25zb2xlLmxvZyhpdGVtKVxuLy8gfSlcblxuXG4vLyBUcmVlIFNoYWtpbmflj6rmlK/mjIEgRVMgTW9kdWxl5qih5Z2X55qE5byV5YWl5pa55byP77yIaW1wb3J077yJXG4vLyDkuI3mlK/mjIFyZXF1aXJl77yIaW1wb3J06Z2Z5oCB44CBcmVxdWlyZeWKqOaAge+8iVxuLy8gaW1wb3J0IHsgYWRkIH0gZnJvbSAnLi9tYXRoLmpzJ1xuXG4vLyBhZGQoMiwgMylcblxuXG4vLyBDb2RlIFNwbGl0dGluZyBcbi8vIOS7o+eggeWIhuWJsu+8jOWSjHdlYnBhY2vml6DlhbNcbi8vIHdlYnBhY2vkuK3lrp7njrDku6PnoIHliIblibLvvIzkuKTnp43mlrnlvI9cbi8vIDHjgIHlkIzmraXku6PnoIHvvJrlj6rpnIDopoHlnKh3ZWJwYWNrLmNvbW1vbi5qc+WBmm9wdGltaXphdGlvbueahOmFjee9ruWNs+WPr1xuLy8gMuOAgeW8guatpeS7o+egge+8iGltcG9ydO+8iTog5byC5q2l5Luj56CB77yM5peg6ZyA5YGa5Lu75L2V6YWN572u77yM5Lya6Ieq5Yqo6L+b6KGM5Luj56CB5YiG5YmyXG5cbi8v5ZCM5q2l5pa55byPXG4vLyBpbXBvcnQgXyBmcm9tICdsb2Rhc2gnXG4vLyB2YXIgZWxlbWVudCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpXG4vLyBlbGVtZW50LmlubmVySFRNTCA9IF8uam9pbihbJ3dhbmcnLCAnamluZyddLCAnLScpXG4vLyBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGVsZW1lbnQpXG5cblxuLy8g5byC5q2l5pa55byPXG5hc3luYyBmdW5jdGlvbiBnZXRDb21wb25lbnQgKCkge1xuICBjb25zdCB7ZGVmYXVsdDogXyB9ID0gYXdhaXQgaW1wb3J0KC8qIHdlYnBhY2tDaHVua05hbWU6IFwibG9kYXNoXCIgKi8gJ2xvZGFzaCcpXG4gIGNvbnN0IGVsZW1lbnQgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKVxuICBlbGVtZW50LmlubmVySFRNTCA9IF8uam9pbihbJ3dhbmcnLCAnamluZyddLCAnLScpXG4gIHJldHVybiBlbGVtZW50XG59XG5cbmRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4ge1xuICBnZXRDb21wb25lbnQoKS50aGVuKGVsZW1lbnQgPT4ge1xuICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQoZWxlbWVudClcbiAgfSlcbn0pXG5cbi8vIGltcG9ydCB0ZXN0IGZyb20gJy4vdGVzdC5qcydcbi8vIGNvbnNvbGUubG9nKHRlc3QubmFtZSkiXSwibWFwcGluZ3MiOiJBQUFBO0FBRUE7QUFDQTtBQUNBO0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFHQTtBQUNBO0FBQ0E7QUFFQTtBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBR0E7QUFDQTtBQUNBO0FBQUE7QUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBR0EiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/index.js\n");
 
 /***/ })
 

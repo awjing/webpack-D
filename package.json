@@ -7,7 +7,7 @@
     "bundle": "webpack",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-    "dev-build": "rimraf dist && webpack --config ./build/webpack.dev.js",
+    "dev-build": "rimraf dist && webpack --profile --json > stats.json --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
     "server": "node server.js"
   },

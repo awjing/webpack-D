@@ -45,26 +45,25 @@
 // 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割
 
 //同步方式
-import _ from 'lodash'
-import jquery from 'jquery'
-var element = document.createElement('div')
-element.innerHTML = _.join(['wang', 'jing'], '-')
-document.body.appendChild(element)
+// import _ from 'lodash'
+// var element = document.createElement('div')
+// element.innerHTML = _.join(['wang', 'jing'], '-')
+// document.body.appendChild(element)
 
 
 // 异步方式
-// function getComponent () {
-//   return import(/* webpackChunkName:"lodash" */ 'lodash').then(({default: _ }) => {
-//     var element = document.createElement('div')
-//     element.innerHTML = _.join(['wang', 'jing'], '-')
-//     return element
-//   })
-// }
+async function getComponent () {
+  const {default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash')
+  const element = document.createElement('div')
+  element.innerHTML = _.join(['wang', 'jing'], '-')
+  return element
+}
 
-// getComponent().then(element => {
-//   document.body.appendChild(element)
-// })
-
+document.addEventListener('click', () => {
+  getComponent().then(element => {
+    document.body.appendChild(element)
+  })
+})
 
 // import test from './test.js'
 // console.log(test.name)

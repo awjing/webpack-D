@@ -97,7 +97,7 @@ module.exports = {
     // })  -- 未解决问题 --
   ],
   optimization: {
-    splitChunks: {
+    splitChunks: { // 不进行配置会有默认项
       chunks: 'all',
       minSize: 30000, // lodash 1Mb
       minChunks: 1,
@@ -110,12 +110,14 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10, // 数值越大优先级越高
-          filename: 'vendors.js'
+          // name: `chunk-vendors`,
+          // chunks: 'initial'
         },
         default: {
           priority: -20,
           reuseExistingChunk: true, // 一个模块被打包过将不再打包，会复用之前打包过的文件
-          filename: 'common.js'
+          // name: `chunk-common`,
+          // chunks: 'initial'
         }
       }
     }
