@@ -11,6 +11,7 @@ module.exports = {
   output: {
     // publicPath: '',   // 添加公共地址--例：CDN等
     filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../dist')
   },
   module: {
@@ -57,30 +58,6 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
-        use: [
-          // 执行顺序：从下到上，从右到左
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'sass-loader',
-          'postcss-loader'
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: [
-          // 执行顺序：从下到上，从右到左
-          'style-loader',
-          'css-loader',
-          'postcss-loader'
-        ]
-      },
-      {
         test: /\.vue$/,
         use: {
           loader: 'vue-loader'
@@ -97,29 +74,30 @@ module.exports = {
     // })  -- 未解决问题 --
   ],
   optimization: {
+    usedExports: true,
     splitChunks: { // 不进行配置会有默认项
       chunks: 'all',
-      // minSize: 30000, // lodash 1Mb
-      // minChunks: 1,
-      // maxAsyncRequests: 5,
-      // maxInitialRequests: 3,
-      // automaticNameDelimiter: '~',
-      // automaticNameMaxLength: 30,
-      // name: true,
-      // cacheGroups: {
-      //   vendors: {
-      //     test: /[\\/]node_modules[\\/]/,
-      //     priority: -10, // 数值越大优先级越高
-      //     // name: `chunk-vendors`,
-      //     // chunks: 'initial'
-      //   },
-      //   default: {
-      //     priority: -20,
-      //     reuseExistingChunk: true, // 一个模块被打包过将不再打包，会复用之前打包过的文件
-      //     // name: `chunk-common`,
-      //     // chunks: 'initial'
-      //   }
-      // }
+      minSize: 30000, // lodash 1Mb
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      automaticNameMaxLength: 30,
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10, // 数值越大优先级越高
+          // name: `chunk-vendors`,
+          // chunks: 'initial'
+        },
+        default: {
+          priority: -20,
+          reuseExistingChunk: true, // 一个模块被打包过将不再打包，会复用之前打包过的文件
+          // name: `chunk-common`,
+          // chunks: 'initial'
+        }
+      }
     }
   }
 }

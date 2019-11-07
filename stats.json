@@ -2,25 +2,15 @@
   "errors": [],
   "warnings": [],
   "version": "4.41.2",
-  "hash": "5a14d7183f677906e0ee",
-  "time": 659,
-  "builtAt": 1573135533828,
+  "hash": "8a8cbed1d3d34d586a9e",
+  "time": 1746,
+  "builtAt": 1573136552626,
   "publicPath": "",
   "outputPath": "/Users/wangjing90/Documents/wj-vue/webpack-D/dist",
   "assetsByChunkName": {
     "main": "main.js"
   },
   "assets": [
-    {
-      "name": "0.js",
-      "size": 1235,
-      "chunks": [
-        0
-      ],
-      "chunkNames": [],
-      "info": {},
-      "emitted": true
-    },
     {
       "name": "index.html",
       "size": 328,
@@ -31,7 +21,7 @@
     },
     {
       "name": "main.js",
-      "size": 39425,
+      "size": 68012,
       "chunks": [
         "main"
       ],
@@ -51,24 +41,8 @@
       "assets": [
         "main.js"
       ],
-      "children": {
-        "preload": [
-          {
-            "name": null,
-            "chunks": [
-              0
-            ],
-            "assets": [
-              "0.js"
-            ]
-          }
-        ]
-      },
-      "childAssets": {
-        "preload": [
-          "0.js"
-        ]
-      }
+      "children": {},
+      "childAssets": {}
     }
   },
   "namedChunkGroups": {
@@ -79,76 +53,69 @@
       "assets": [
         "main.js"
       ],
-      "children": {
-        "preload": [
-          {
-            "name": null,
-            "chunks": [
-              0
-            ],
-            "assets": [
-              "0.js"
-            ]
-          }
-        ]
-      },
-      "childAssets": {
-        "preload": [
-          "0.js"
-        ]
-      }
+      "children": {},
+      "childAssets": {}
     }
   },
   "chunks": [
     {
-      "id": 0,
+      "id": "main",
       "rendered": true,
-      "initial": false,
-      "entry": false,
-      "size": 176,
-      "names": [],
-      "files": [
-        "0.js"
-      ],
-      "hash": "9d542e75ca5c2396b564",
-      "siblings": [],
-      "parents": [
+      "initial": true,
+      "entry": true,
+      "size": 12714,
+      "names": [
         "main"
       ],
+      "files": [
+        "main.js"
+      ],
+      "hash": "4e777a61bd530da5a2ea",
+      "siblings": [],
+      "parents": [],
       "children": [],
       "childrenByOrder": {},
       "modules": [
         {
-          "id": "./src/click.js",
-          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/click.js",
-          "name": "./src/click.js",
-          "index": 1,
+          "id": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "name": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+          "index": 2,
           "index2": 1,
-          "size": 176,
+          "size": 231,
           "cacheable": true,
           "built": true,
           "optional": false,
           "prefetched": false,
           "chunks": [
-            0
+            "main"
           ],
-          "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
-          "issuerId": "./src/index.js",
-          "issuerName": "./src/index.js",
+          "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "issuerId": "./src/style.css",
+          "issuerName": "./src/style.css",
           "issuerPath": [
             {
               "id": "./src/index.js",
               "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
               "name": "./src/index.js",
               "profile": {
-                "factory": 44,
-                "building": 223
+                "factory": 64,
+                "building": 578
+              }
+            },
+            {
+              "id": "./src/style.css",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "name": "./src/style.css",
+              "profile": {
+                "factory": 95,
+                "building": 51
               }
             }
           ],
           "profile": {
-            "factory": 222,
-            "building": 14
+            "factory": 203,
+            "building": 821
           },
           "failed": false,
           "errors": 0,
@@ -156,68 +123,179 @@
           "assets": [],
           "reasons": [
             {
-              "moduleId": "./src/index.js",
-              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
-              "module": "./src/index.js",
-              "moduleName": "./src/index.js",
-              "type": "import()",
-              "userRequest": "./click.js",
-              "loc": "50:2-52:15"
+              "moduleId": "./src/style.css",
+              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "module": "./src/style.css",
+              "moduleName": "./src/style.css",
+              "type": "cjs require",
+              "userRequest": "!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css",
+              "loc": "1:14-121"
+            },
+            {
+              "moduleId": "./src/style.css",
+              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "module": "./src/style.css",
+              "moduleName": "./src/style.css",
+              "type": "module.hot.accept",
+              "userRequest": "!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css",
+              "loc": "20:4-31:5"
+            },
+            {
+              "moduleId": "./src/style.css",
+              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "module": "./src/style.css",
+              "moduleName": "./src/style.css",
+              "type": "cjs require",
+              "userRequest": "!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css",
+              "loc": "23:25-132"
             }
           ],
           "usedExports": true,
-          "providedExports": [
-            "default"
-          ],
+          "providedExports": null,
           "optimizationBailout": [],
-          "depth": 1,
-          "source": "function handleClick() {\n  const element = document.createElement('div');\n  element.innerHTML = 'wangjing';\n  document.body.appendChild(element);\n}\n\nexport default handleClick;"
-        }
-      ],
-      "filteredModules": 0,
-      "origins": [
+          "depth": 2,
+          "source": "exports = module.exports = require(\"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.id, \"div:nth-of-type(odd) {\\n  background-color: green;\\n}\\n\\nbody {\\n  background-color: blue;\\n}\", \"\"]);\n"
+        },
         {
-          "moduleId": "./src/index.js",
-          "module": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
-          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
-          "moduleName": "./src/index.js",
-          "loc": "50:2-52:15",
-          "request": "./click.js",
-          "reasons": []
-        }
-      ]
-    },
-    {
-      "id": "main",
-      "rendered": true,
-      "initial": true,
-      "entry": true,
-      "size": 1870,
-      "names": [
-        "main"
-      ],
-      "files": [
-        "main.js"
-      ],
-      "hash": "be1d4ebb24148206eac8",
-      "siblings": [],
-      "parents": [],
-      "children": [
-        0
-      ],
-      "childrenByOrder": {
-        "preload": [
-          0
-        ]
-      },
-      "modules": [
+          "id": "./node_modules/css-loader/dist/runtime/api.js",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/runtime/api.js",
+          "name": "./node_modules/css-loader/dist/runtime/api.js",
+          "index": 3,
+          "index2": 0,
+          "size": 2677,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "main"
+          ],
+          "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "issuerId": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+          "issuerName": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+          "issuerPath": [
+            {
+              "id": "./src/index.js",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 64,
+                "building": 578
+              }
+            },
+            {
+              "id": "./src/style.css",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "name": "./src/style.css",
+              "profile": {
+                "factory": 95,
+                "building": 51
+              }
+            },
+            {
+              "id": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "name": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+              "profile": {
+                "factory": 203,
+                "building": 821
+              }
+            }
+          ],
+          "profile": {
+            "factory": 40,
+            "building": 7
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "module": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+              "moduleName": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+              "type": "cjs require",
+              "userRequest": "../node_modules/css-loader/dist/runtime/api.js",
+              "loc": "1:27-84"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 3,
+          "source": "\"use strict\";\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (useSourceMap) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item, useSourceMap);\n\n      if (item[2]) {\n        return \"@media \".concat(item[2], \"{\").concat(content, \"}\");\n      }\n\n      return content;\n    }).join('');\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery) {\n    if (typeof modules === 'string') {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, '']];\n    }\n\n    var alreadyImportedModules = {};\n\n    for (var i = 0; i < this.length; i++) {\n      // eslint-disable-next-line prefer-destructuring\n      var id = this[i][0];\n\n      if (id != null) {\n        alreadyImportedModules[id] = true;\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = modules[_i]; // skip already imported module\n      // this implementation is not 100% perfect for weird media query combinations\n      // when a module is imported multiple times with different media queries.\n      // I hope this will never occur (Hey this way we have smaller bundles)\n\n      if (item[0] == null || !alreadyImportedModules[item[0]]) {\n        if (mediaQuery && !item[2]) {\n          item[2] = mediaQuery;\n        } else if (mediaQuery) {\n          item[2] = \"(\".concat(item[2], \") and (\").concat(mediaQuery, \")\");\n        }\n\n        list.push(item);\n      }\n    }\n  };\n\n  return list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\n\n  var cssMapping = item[3];\n\n  if (!cssMapping) {\n    return content;\n  }\n\n  if (useSourceMap && typeof btoa === 'function') {\n    var sourceMapping = toComment(cssMapping);\n    var sourceURLs = cssMapping.sources.map(function (source) {\n      return \"/*# sourceURL=\".concat(cssMapping.sourceRoot).concat(source, \" */\");\n    });\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n  }\n\n  return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\n\n\nfunction toComment(sourceMap) {\n  // eslint-disable-next-line no-undef\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n  var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\n  return \"/*# \".concat(data, \" */\");\n}"
+        },
+        {
+          "id": "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+          "name": "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+          "index": 4,
+          "index2": 2,
+          "size": 6909,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "main"
+          ],
+          "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "issuerId": "./src/style.css",
+          "issuerName": "./src/style.css",
+          "issuerPath": [
+            {
+              "id": "./src/index.js",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 64,
+                "building": 578
+              }
+            },
+            {
+              "id": "./src/style.css",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "name": "./src/style.css",
+              "profile": {
+                "factory": 95,
+                "building": 51
+              }
+            }
+          ],
+          "profile": {
+            "factory": 203,
+            "building": 821
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": "./src/style.css",
+              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+              "module": "./src/style.css",
+              "moduleName": "./src/style.css",
+              "type": "cjs require",
+              "userRequest": "!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+              "loc": "12:13-94"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 2,
+          "source": "\"use strict\";\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function memorize() {\n    if (typeof memo === 'undefined') {\n      // Test for IE <= 9 as proposed by Browserhacks\n      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805\n      // Tests for existence of standard globals is to allow style-loader\n      // to operate correctly into non-standard environments\n      // @see https://github.com/webpack-contrib/style-loader/issues/177\n      memo = Boolean(window && document && document.all && !window.atob);\n    }\n\n    return memo;\n  };\n}();\n\nvar getTarget = function getTarget() {\n  var memo = {};\n  return function memorize(target) {\n    if (typeof memo[target] === 'undefined') {\n      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself\n\n      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {\n        try {\n          // This will throw an exception if access to iframe is blocked\n          // due to cross-origin restrictions\n          styleTarget = styleTarget.contentDocument.head;\n        } catch (e) {\n          // istanbul ignore next\n          styleTarget = null;\n        }\n      }\n\n      memo[target] = styleTarget;\n    }\n\n    return memo[target];\n  };\n}();\n\nfunction listToStyles(list, options) {\n  var styles = [];\n  var newStyles = {};\n\n  for (var i = 0; i < list.length; i++) {\n    var item = list[i];\n    var id = options.base ? item[0] + options.base : item[0];\n    var css = item[1];\n    var media = item[2];\n    var sourceMap = item[3];\n    var part = {\n      css: css,\n      media: media,\n      sourceMap: sourceMap\n    };\n\n    if (!newStyles[id]) {\n      styles.push(newStyles[id] = {\n        id: id,\n        parts: [part]\n      });\n    } else {\n      newStyles[id].parts.push(part);\n    }\n  }\n\n  return styles;\n}\n\nfunction addStylesToDom(styles, options) {\n  for (var i = 0; i < styles.length; i++) {\n    var item = styles[i];\n    var domStyle = stylesInDom[item.id];\n    var j = 0;\n\n    if (domStyle) {\n      domStyle.refs++;\n\n      for (; j < domStyle.parts.length; j++) {\n        domStyle.parts[j](item.parts[j]);\n      }\n\n      for (; j < item.parts.length; j++) {\n        domStyle.parts.push(addStyle(item.parts[j], options));\n      }\n    } else {\n      var parts = [];\n\n      for (; j < item.parts.length; j++) {\n        parts.push(addStyle(item.parts[j], options));\n      }\n\n      stylesInDom[item.id] = {\n        id: item.id,\n        refs: 1,\n        parts: parts\n      };\n    }\n  }\n}\n\nfunction insertStyleElement(options) {\n  var style = document.createElement('style');\n\n  if (typeof options.attributes.nonce === 'undefined') {\n    var nonce = typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;\n\n    if (nonce) {\n      options.attributes.nonce = nonce;\n    }\n  }\n\n  Object.keys(options.attributes).forEach(function (key) {\n    style.setAttribute(key, options.attributes[key]);\n  });\n\n  if (typeof options.insert === 'function') {\n    options.insert(style);\n  } else {\n    var target = getTarget(options.insert || 'head');\n\n    if (!target) {\n      throw new Error(\"Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.\");\n    }\n\n    target.appendChild(style);\n  }\n\n  return style;\n}\n\nfunction removeStyleElement(style) {\n  // istanbul ignore if\n  if (style.parentNode === null) {\n    return false;\n  }\n\n  style.parentNode.removeChild(style);\n}\n/* istanbul ignore next  */\n\n\nvar replaceText = function replaceText() {\n  var textStore = [];\n  return function replace(index, replacement) {\n    textStore[index] = replacement;\n    return textStore.filter(Boolean).join('\\n');\n  };\n}();\n\nfunction applyToSingletonTag(style, index, remove, obj) {\n  var css = remove ? '' : obj.css; // For old IE\n\n  /* istanbul ignore if  */\n\n  if (style.styleSheet) {\n    style.styleSheet.cssText = replaceText(index, css);\n  } else {\n    var cssNode = document.createTextNode(css);\n    var childNodes = style.childNodes;\n\n    if (childNodes[index]) {\n      style.removeChild(childNodes[index]);\n    }\n\n    if (childNodes.length) {\n      style.insertBefore(cssNode, childNodes[index]);\n    } else {\n      style.appendChild(cssNode);\n    }\n  }\n}\n\nfunction applyToTag(style, options, obj) {\n  var css = obj.css;\n  var media = obj.media;\n  var sourceMap = obj.sourceMap;\n\n  if (media) {\n    style.setAttribute('media', media);\n  }\n\n  if (sourceMap && btoa) {\n    css += \"\\n/*# sourceMappingURL=data:application/json;base64,\".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), \" */\");\n  } // For old IE\n\n  /* istanbul ignore if  */\n\n\n  if (style.styleSheet) {\n    style.styleSheet.cssText = css;\n  } else {\n    while (style.firstChild) {\n      style.removeChild(style.firstChild);\n    }\n\n    style.appendChild(document.createTextNode(css));\n  }\n}\n\nvar singleton = null;\nvar singletonCounter = 0;\n\nfunction addStyle(obj, options) {\n  var style;\n  var update;\n  var remove;\n\n  if (options.singleton) {\n    var styleIndex = singletonCounter++;\n    style = singleton || (singleton = insertStyleElement(options));\n    update = applyToSingletonTag.bind(null, style, styleIndex, false);\n    remove = applyToSingletonTag.bind(null, style, styleIndex, true);\n  } else {\n    style = insertStyleElement(options);\n    update = applyToTag.bind(null, style, options);\n\n    remove = function remove() {\n      removeStyleElement(style);\n    };\n  }\n\n  update(obj);\n  return function updateStyle(newObj) {\n    if (newObj) {\n      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {\n        return;\n      }\n\n      update(obj = newObj);\n    } else {\n      remove();\n    }\n  };\n}\n\nmodule.exports = function (list, options) {\n  options = options || {};\n  options.attributes = typeof options.attributes === 'object' ? options.attributes : {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>\n  // tags it will allow on a page\n\n  if (!options.singleton && typeof options.singleton !== 'boolean') {\n    options.singleton = isOldIE();\n  }\n\n  var styles = listToStyles(list, options);\n  addStylesToDom(styles, options);\n  return function update(newList) {\n    var mayRemove = [];\n\n    for (var i = 0; i < styles.length; i++) {\n      var item = styles[i];\n      var domStyle = stylesInDom[item.id];\n\n      if (domStyle) {\n        domStyle.refs--;\n        mayRemove.push(domStyle);\n      }\n    }\n\n    if (newList) {\n      var newStyles = listToStyles(newList, options);\n      addStylesToDom(newStyles, options);\n    }\n\n    for (var _i = 0; _i < mayRemove.length; _i++) {\n      var _domStyle = mayRemove[_i];\n\n      if (_domStyle.refs === 0) {\n        for (var j = 0; j < _domStyle.parts.length; j++) {\n          _domStyle.parts[j]();\n        }\n\n        delete stylesInDom[_domStyle.id];\n      }\n    }\n  };\n};"
+        },
         {
           "id": "./src/index.js",
           "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
           "name": "./src/index.js",
           "index": 0,
-          "index2": 0,
-          "size": 1870,
+          "index2": 4,
+          "size": 1900,
           "cacheable": true,
           "built": true,
           "optional": false,
@@ -230,8 +308,8 @@
           "issuerName": null,
           "issuerPath": null,
           "profile": {
-            "factory": 44,
-            "building": 223
+            "factory": 64,
+            "building": 578
           },
           "failed": false,
           "errors": 0,
@@ -249,10 +327,63 @@
             }
           ],
           "usedExports": true,
-          "providedExports": null,
+          "providedExports": [],
           "optimizationBailout": [],
           "depth": 0,
-          "source": "// import './style.css'\n// var btn = document.createElement('button')\n// btn.innerHTML = '新增'\n// document.body.appendChild(btn\n// btn.onclick = function () {\n//   var div = document.createElement('div')\n//   div.innerHTML = 'item'\n//   document.body.appendChild(div)\n// }\n// // css loader底层已经实现HMR，不需要手动实现\n// // 使用vue，vue底层也已经实现HMR\n// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）\n// if (module.hot) {\n//   module.hot.accept('./number', () => {\n//     document.body.removeChild(document.getElementById('number'))\n//     number()\n//   })\n// }\n// import \"@babel/polyfill\";\n// const arr = [\n//   new Promise(() => {}),\n//   new Promise(() => {})\n// ]\n// arr.map(item => {\n//   console.log(item)\n// })\n// Tree Shaking只支持 ES Module模块的引入方式（import）\n// 不支持require（import静态、require动态）\n// import { add } from './math.js'\n// add(2, 3)\n// Code Splitting \n// 代码分割，和webpack无关\n// webpack中实现代码分割，两种方式\n// 1、同步代码：只需要在webpack.common.js做optimization的配置即可\n// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割\n//同步方式\n// import _ from 'lodash'\n// var element = document.createElement('div')\n// element.innerHTML = _.join(['wang', 'jing'], '-')\n// document.body.appendChild(element)\n// 异步方式\n// async function getComponent () {\n//   const {default: _ } = await import(/* webpackChunkName: \"lodash\" */ 'lodash')\n//   return element\n// }\n// getComponent().then(element => {\n//   document.body.appendChild(element)\n// })\ndocument.addEventListener('click', () => {\n  import(\n  /* webpackPreload: true */\n  './click.js').then(({\n    default: func\n  }) => {\n    func();\n  });\n}); // import test from './test.js'\n// console.log(test.name)"
+          "source": "// import './style.css'\n// var btn = document.createElement('button')\n// btn.innerHTML = '新增'\n// document.body.appendChild(btn\n// btn.onclick = function () {\n//   var div = document.createElement('div')\n//   div.innerHTML = 'item'\n//   document.body.appendChild(div)\n// }\n// // css loader底层已经实现HMR，不需要手动实现\n// // 使用vue，vue底层也已经实现HMR\n// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）\n// if (module.hot) {\n//   module.hot.accept('./number', () => {\n//     document.body.removeChild(document.getElementById('number'))\n//     number()\n//   })\n// }\n// import \"@babel/polyfill\";\n// const arr = [\n//   new Promise(() => {}),\n//   new Promise(() => {})\n// ]\n// arr.map(item => {\n//   console.log(item)\n// })\n// Tree Shaking只支持 ES Module模块的引入方式（import）\n// 不支持require（import静态、require动态）\n// import { add } from './math.js'\n// add(2, 3)\n// Code Splitting \n// 代码分割，和webpack无关\n// webpack中实现代码分割，两种方式\n// 1、同步代码：只需要在webpack.common.js做optimization的配置即可\n// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割\n//同步方式\n// import _ from 'lodash'\n// var element = document.createElement('div')\n// element.innerHTML = _.join(['wang', 'jing'], '-')\n// document.body.appendChild(element)\n// 异步方式\n// async function getComponent () {\n//   const {default: _ } = await import(/* webpackChunkName: \"lodash\" */ 'lodash')\n//   const element = document.createElement('div')\n//   element.innerHTML = _.join(['wang', 'jing'], '-')\n//   return element\n// }\n// document.addEventListener('click', () => {\n//   getComponent().then(element => {\n//     document.body.appendChild(element)\n//   })\n// })\n// import test from './test.js'\n// console.log(test.name)\nimport './style.css';"
+        },
+        {
+          "id": "./src/style.css",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "name": "./src/style.css",
+          "index": 1,
+          "index2": 3,
+          "size": 997,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            "main"
+          ],
+          "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+          "issuerId": "./src/index.js",
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": "./src/index.js",
+              "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 64,
+                "building": 578
+              }
+            }
+          ],
+          "profile": {
+            "factory": 95,
+            "building": 51
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": "./src/index.js",
+              "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./style.css",
+              "loc": "55:0-21"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "var content = require(\"!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css\");\n\nif (typeof content === 'string') {\n  content = [[module.id, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = require(\"!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (module.hot) {\n  if (!content.locals) {\n    module.hot.accept(\n      \"!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css\",\n      function () {\n        var newContent = require(\"!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.id, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}"
         }
       ],
       "filteredModules": 0,
@@ -270,36 +401,45 @@
   ],
   "modules": [
     {
-      "id": "./src/click.js",
-      "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/click.js",
-      "name": "./src/click.js",
-      "index": 1,
+      "id": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+      "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+      "name": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+      "index": 2,
       "index2": 1,
-      "size": 176,
+      "size": 231,
       "cacheable": true,
       "built": true,
       "optional": false,
       "prefetched": false,
       "chunks": [
-        0
+        "main"
       ],
-      "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
-      "issuerId": "./src/index.js",
-      "issuerName": "./src/index.js",
+      "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+      "issuerId": "./src/style.css",
+      "issuerName": "./src/style.css",
       "issuerPath": [
         {
           "id": "./src/index.js",
           "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
           "name": "./src/index.js",
           "profile": {
-            "factory": 44,
-            "building": 223
+            "factory": 64,
+            "building": 578
+          }
+        },
+        {
+          "id": "./src/style.css",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "name": "./src/style.css",
+          "profile": {
+            "factory": 95,
+            "building": 51
           }
         }
       ],
       "profile": {
-        "factory": 222,
-        "building": 14
+        "factory": 203,
+        "building": 821
       },
       "failed": false,
       "errors": 0,
@@ -307,30 +447,179 @@
       "assets": [],
       "reasons": [
         {
-          "moduleId": "./src/index.js",
-          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
-          "module": "./src/index.js",
-          "moduleName": "./src/index.js",
-          "type": "import()",
-          "userRequest": "./click.js",
-          "loc": "50:2-52:15"
+          "moduleId": "./src/style.css",
+          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "module": "./src/style.css",
+          "moduleName": "./src/style.css",
+          "type": "cjs require",
+          "userRequest": "!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css",
+          "loc": "1:14-121"
+        },
+        {
+          "moduleId": "./src/style.css",
+          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "module": "./src/style.css",
+          "moduleName": "./src/style.css",
+          "type": "module.hot.accept",
+          "userRequest": "!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css",
+          "loc": "20:4-31:5"
+        },
+        {
+          "moduleId": "./src/style.css",
+          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "module": "./src/style.css",
+          "moduleName": "./src/style.css",
+          "type": "cjs require",
+          "userRequest": "!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css",
+          "loc": "23:25-132"
         }
       ],
       "usedExports": true,
-      "providedExports": [
-        "default"
-      ],
+      "providedExports": null,
       "optimizationBailout": [],
-      "depth": 1,
-      "source": "function handleClick() {\n  const element = document.createElement('div');\n  element.innerHTML = 'wangjing';\n  document.body.appendChild(element);\n}\n\nexport default handleClick;"
+      "depth": 2,
+      "source": "exports = module.exports = require(\"../node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.id, \"div:nth-of-type(odd) {\\n  background-color: green;\\n}\\n\\nbody {\\n  background-color: blue;\\n}\", \"\"]);\n"
+    },
+    {
+      "id": "./node_modules/css-loader/dist/runtime/api.js",
+      "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/runtime/api.js",
+      "name": "./node_modules/css-loader/dist/runtime/api.js",
+      "index": 3,
+      "index2": 0,
+      "size": 2677,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "main"
+      ],
+      "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+      "issuerId": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+      "issuerName": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+      "issuerPath": [
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 64,
+            "building": 578
+          }
+        },
+        {
+          "id": "./src/style.css",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "name": "./src/style.css",
+          "profile": {
+            "factory": 95,
+            "building": 51
+          }
+        },
+        {
+          "id": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "name": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+          "profile": {
+            "factory": 203,
+            "building": 821
+          }
+        }
+      ],
+      "profile": {
+        "factory": 40,
+        "building": 7
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js!./src/style.css",
+          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "module": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+          "moduleName": "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src!./src/style.css",
+          "type": "cjs require",
+          "userRequest": "../node_modules/css-loader/dist/runtime/api.js",
+          "loc": "1:27-84"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 3,
+      "source": "\"use strict\";\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (useSourceMap) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item, useSourceMap);\n\n      if (item[2]) {\n        return \"@media \".concat(item[2], \"{\").concat(content, \"}\");\n      }\n\n      return content;\n    }).join('');\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery) {\n    if (typeof modules === 'string') {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, '']];\n    }\n\n    var alreadyImportedModules = {};\n\n    for (var i = 0; i < this.length; i++) {\n      // eslint-disable-next-line prefer-destructuring\n      var id = this[i][0];\n\n      if (id != null) {\n        alreadyImportedModules[id] = true;\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = modules[_i]; // skip already imported module\n      // this implementation is not 100% perfect for weird media query combinations\n      // when a module is imported multiple times with different media queries.\n      // I hope this will never occur (Hey this way we have smaller bundles)\n\n      if (item[0] == null || !alreadyImportedModules[item[0]]) {\n        if (mediaQuery && !item[2]) {\n          item[2] = mediaQuery;\n        } else if (mediaQuery) {\n          item[2] = \"(\".concat(item[2], \") and (\").concat(mediaQuery, \")\");\n        }\n\n        list.push(item);\n      }\n    }\n  };\n\n  return list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\n\n  var cssMapping = item[3];\n\n  if (!cssMapping) {\n    return content;\n  }\n\n  if (useSourceMap && typeof btoa === 'function') {\n    var sourceMapping = toComment(cssMapping);\n    var sourceURLs = cssMapping.sources.map(function (source) {\n      return \"/*# sourceURL=\".concat(cssMapping.sourceRoot).concat(source, \" */\");\n    });\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n  }\n\n  return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\n\n\nfunction toComment(sourceMap) {\n  // eslint-disable-next-line no-undef\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n  var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\n  return \"/*# \".concat(data, \" */\");\n}"
+    },
+    {
+      "id": "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+      "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+      "name": "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+      "index": 4,
+      "index2": 2,
+      "size": 6909,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "main"
+      ],
+      "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+      "issuerId": "./src/style.css",
+      "issuerName": "./src/style.css",
+      "issuerPath": [
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 64,
+            "building": 578
+          }
+        },
+        {
+          "id": "./src/style.css",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "name": "./src/style.css",
+          "profile": {
+            "factory": 95,
+            "building": 51
+          }
+        }
+      ],
+      "profile": {
+        "factory": 203,
+        "building": 821
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": "./src/style.css",
+          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+          "module": "./src/style.css",
+          "moduleName": "./src/style.css",
+          "type": "cjs require",
+          "userRequest": "!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js",
+          "loc": "12:13-94"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 2,
+      "source": "\"use strict\";\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function memorize() {\n    if (typeof memo === 'undefined') {\n      // Test for IE <= 9 as proposed by Browserhacks\n      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805\n      // Tests for existence of standard globals is to allow style-loader\n      // to operate correctly into non-standard environments\n      // @see https://github.com/webpack-contrib/style-loader/issues/177\n      memo = Boolean(window && document && document.all && !window.atob);\n    }\n\n    return memo;\n  };\n}();\n\nvar getTarget = function getTarget() {\n  var memo = {};\n  return function memorize(target) {\n    if (typeof memo[target] === 'undefined') {\n      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself\n\n      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {\n        try {\n          // This will throw an exception if access to iframe is blocked\n          // due to cross-origin restrictions\n          styleTarget = styleTarget.contentDocument.head;\n        } catch (e) {\n          // istanbul ignore next\n          styleTarget = null;\n        }\n      }\n\n      memo[target] = styleTarget;\n    }\n\n    return memo[target];\n  };\n}();\n\nfunction listToStyles(list, options) {\n  var styles = [];\n  var newStyles = {};\n\n  for (var i = 0; i < list.length; i++) {\n    var item = list[i];\n    var id = options.base ? item[0] + options.base : item[0];\n    var css = item[1];\n    var media = item[2];\n    var sourceMap = item[3];\n    var part = {\n      css: css,\n      media: media,\n      sourceMap: sourceMap\n    };\n\n    if (!newStyles[id]) {\n      styles.push(newStyles[id] = {\n        id: id,\n        parts: [part]\n      });\n    } else {\n      newStyles[id].parts.push(part);\n    }\n  }\n\n  return styles;\n}\n\nfunction addStylesToDom(styles, options) {\n  for (var i = 0; i < styles.length; i++) {\n    var item = styles[i];\n    var domStyle = stylesInDom[item.id];\n    var j = 0;\n\n    if (domStyle) {\n      domStyle.refs++;\n\n      for (; j < domStyle.parts.length; j++) {\n        domStyle.parts[j](item.parts[j]);\n      }\n\n      for (; j < item.parts.length; j++) {\n        domStyle.parts.push(addStyle(item.parts[j], options));\n      }\n    } else {\n      var parts = [];\n\n      for (; j < item.parts.length; j++) {\n        parts.push(addStyle(item.parts[j], options));\n      }\n\n      stylesInDom[item.id] = {\n        id: item.id,\n        refs: 1,\n        parts: parts\n      };\n    }\n  }\n}\n\nfunction insertStyleElement(options) {\n  var style = document.createElement('style');\n\n  if (typeof options.attributes.nonce === 'undefined') {\n    var nonce = typeof __webpack_nonce__ !== 'undefined' ? __webpack_nonce__ : null;\n\n    if (nonce) {\n      options.attributes.nonce = nonce;\n    }\n  }\n\n  Object.keys(options.attributes).forEach(function (key) {\n    style.setAttribute(key, options.attributes[key]);\n  });\n\n  if (typeof options.insert === 'function') {\n    options.insert(style);\n  } else {\n    var target = getTarget(options.insert || 'head');\n\n    if (!target) {\n      throw new Error(\"Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.\");\n    }\n\n    target.appendChild(style);\n  }\n\n  return style;\n}\n\nfunction removeStyleElement(style) {\n  // istanbul ignore if\n  if (style.parentNode === null) {\n    return false;\n  }\n\n  style.parentNode.removeChild(style);\n}\n/* istanbul ignore next  */\n\n\nvar replaceText = function replaceText() {\n  var textStore = [];\n  return function replace(index, replacement) {\n    textStore[index] = replacement;\n    return textStore.filter(Boolean).join('\\n');\n  };\n}();\n\nfunction applyToSingletonTag(style, index, remove, obj) {\n  var css = remove ? '' : obj.css; // For old IE\n\n  /* istanbul ignore if  */\n\n  if (style.styleSheet) {\n    style.styleSheet.cssText = replaceText(index, css);\n  } else {\n    var cssNode = document.createTextNode(css);\n    var childNodes = style.childNodes;\n\n    if (childNodes[index]) {\n      style.removeChild(childNodes[index]);\n    }\n\n    if (childNodes.length) {\n      style.insertBefore(cssNode, childNodes[index]);\n    } else {\n      style.appendChild(cssNode);\n    }\n  }\n}\n\nfunction applyToTag(style, options, obj) {\n  var css = obj.css;\n  var media = obj.media;\n  var sourceMap = obj.sourceMap;\n\n  if (media) {\n    style.setAttribute('media', media);\n  }\n\n  if (sourceMap && btoa) {\n    css += \"\\n/*# sourceMappingURL=data:application/json;base64,\".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), \" */\");\n  } // For old IE\n\n  /* istanbul ignore if  */\n\n\n  if (style.styleSheet) {\n    style.styleSheet.cssText = css;\n  } else {\n    while (style.firstChild) {\n      style.removeChild(style.firstChild);\n    }\n\n    style.appendChild(document.createTextNode(css));\n  }\n}\n\nvar singleton = null;\nvar singletonCounter = 0;\n\nfunction addStyle(obj, options) {\n  var style;\n  var update;\n  var remove;\n\n  if (options.singleton) {\n    var styleIndex = singletonCounter++;\n    style = singleton || (singleton = insertStyleElement(options));\n    update = applyToSingletonTag.bind(null, style, styleIndex, false);\n    remove = applyToSingletonTag.bind(null, style, styleIndex, true);\n  } else {\n    style = insertStyleElement(options);\n    update = applyToTag.bind(null, style, options);\n\n    remove = function remove() {\n      removeStyleElement(style);\n    };\n  }\n\n  update(obj);\n  return function updateStyle(newObj) {\n    if (newObj) {\n      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {\n        return;\n      }\n\n      update(obj = newObj);\n    } else {\n      remove();\n    }\n  };\n}\n\nmodule.exports = function (list, options) {\n  options = options || {};\n  options.attributes = typeof options.attributes === 'object' ? options.attributes : {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>\n  // tags it will allow on a page\n\n  if (!options.singleton && typeof options.singleton !== 'boolean') {\n    options.singleton = isOldIE();\n  }\n\n  var styles = listToStyles(list, options);\n  addStylesToDom(styles, options);\n  return function update(newList) {\n    var mayRemove = [];\n\n    for (var i = 0; i < styles.length; i++) {\n      var item = styles[i];\n      var domStyle = stylesInDom[item.id];\n\n      if (domStyle) {\n        domStyle.refs--;\n        mayRemove.push(domStyle);\n      }\n    }\n\n    if (newList) {\n      var newStyles = listToStyles(newList, options);\n      addStylesToDom(newStyles, options);\n    }\n\n    for (var _i = 0; _i < mayRemove.length; _i++) {\n      var _domStyle = mayRemove[_i];\n\n      if (_domStyle.refs === 0) {\n        for (var j = 0; j < _domStyle.parts.length; j++) {\n          _domStyle.parts[j]();\n        }\n\n        delete stylesInDom[_domStyle.id];\n      }\n    }\n  };\n};"
     },
     {
       "id": "./src/index.js",
       "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
       "name": "./src/index.js",
       "index": 0,
-      "index2": 0,
-      "size": 1870,
+      "index2": 4,
+      "size": 1900,
       "cacheable": true,
       "built": true,
       "optional": false,
@@ -343,8 +632,8 @@
       "issuerName": null,
       "issuerPath": null,
       "profile": {
-        "factory": 44,
-        "building": 223
+        "factory": 64,
+        "building": 578
       },
       "failed": false,
       "errors": 0,
@@ -362,17 +651,70 @@
         }
       ],
       "usedExports": true,
-      "providedExports": null,
+      "providedExports": [],
       "optimizationBailout": [],
       "depth": 0,
-      "source": "// import './style.css'\n// var btn = document.createElement('button')\n// btn.innerHTML = '新增'\n// document.body.appendChild(btn\n// btn.onclick = function () {\n//   var div = document.createElement('div')\n//   div.innerHTML = 'item'\n//   document.body.appendChild(div)\n// }\n// // css loader底层已经实现HMR，不需要手动实现\n// // 使用vue，vue底层也已经实现HMR\n// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）\n// if (module.hot) {\n//   module.hot.accept('./number', () => {\n//     document.body.removeChild(document.getElementById('number'))\n//     number()\n//   })\n// }\n// import \"@babel/polyfill\";\n// const arr = [\n//   new Promise(() => {}),\n//   new Promise(() => {})\n// ]\n// arr.map(item => {\n//   console.log(item)\n// })\n// Tree Shaking只支持 ES Module模块的引入方式（import）\n// 不支持require（import静态、require动态）\n// import { add } from './math.js'\n// add(2, 3)\n// Code Splitting \n// 代码分割，和webpack无关\n// webpack中实现代码分割，两种方式\n// 1、同步代码：只需要在webpack.common.js做optimization的配置即可\n// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割\n//同步方式\n// import _ from 'lodash'\n// var element = document.createElement('div')\n// element.innerHTML = _.join(['wang', 'jing'], '-')\n// document.body.appendChild(element)\n// 异步方式\n// async function getComponent () {\n//   const {default: _ } = await import(/* webpackChunkName: \"lodash\" */ 'lodash')\n//   return element\n// }\n// getComponent().then(element => {\n//   document.body.appendChild(element)\n// })\ndocument.addEventListener('click', () => {\n  import(\n  /* webpackPreload: true */\n  './click.js').then(({\n    default: func\n  }) => {\n    func();\n  });\n}); // import test from './test.js'\n// console.log(test.name)"
+      "source": "// import './style.css'\n// var btn = document.createElement('button')\n// btn.innerHTML = '新增'\n// document.body.appendChild(btn\n// btn.onclick = function () {\n//   var div = document.createElement('div')\n//   div.innerHTML = 'item'\n//   document.body.appendChild(div)\n// }\n// // css loader底层已经实现HMR，不需要手动实现\n// // 使用vue，vue底层也已经实现HMR\n// // 实现HMR（引入第三方未实现HMR相关的，需要手动实现HMR）\n// if (module.hot) {\n//   module.hot.accept('./number', () => {\n//     document.body.removeChild(document.getElementById('number'))\n//     number()\n//   })\n// }\n// import \"@babel/polyfill\";\n// const arr = [\n//   new Promise(() => {}),\n//   new Promise(() => {})\n// ]\n// arr.map(item => {\n//   console.log(item)\n// })\n// Tree Shaking只支持 ES Module模块的引入方式（import）\n// 不支持require（import静态、require动态）\n// import { add } from './math.js'\n// add(2, 3)\n// Code Splitting \n// 代码分割，和webpack无关\n// webpack中实现代码分割，两种方式\n// 1、同步代码：只需要在webpack.common.js做optimization的配置即可\n// 2、异步代码（import）: 异步代码，无需做任何配置，会自动进行代码分割\n//同步方式\n// import _ from 'lodash'\n// var element = document.createElement('div')\n// element.innerHTML = _.join(['wang', 'jing'], '-')\n// document.body.appendChild(element)\n// 异步方式\n// async function getComponent () {\n//   const {default: _ } = await import(/* webpackChunkName: \"lodash\" */ 'lodash')\n//   const element = document.createElement('div')\n//   element.innerHTML = _.join(['wang', 'jing'], '-')\n//   return element\n// }\n// document.addEventListener('click', () => {\n//   getComponent().then(element => {\n//     document.body.appendChild(element)\n//   })\n// })\n// import test from './test.js'\n// console.log(test.name)\nimport './style.css';"
+    },
+    {
+      "id": "./src/style.css",
+      "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/style-loader/dist/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/css-loader/dist/cjs.js!/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/postcss-loader/src/index.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/style.css",
+      "name": "./src/style.css",
+      "index": 1,
+      "index2": 3,
+      "size": 997,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        "main"
+      ],
+      "issuer": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+      "issuerId": "./src/index.js",
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": "./src/index.js",
+          "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 64,
+            "building": 578
+          }
+        }
+      ],
+      "profile": {
+        "factory": 95,
+        "building": 51
+      },
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": "./src/index.js",
+          "moduleIdentifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/babel-loader/lib/index.js??ref--4!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.js",
+          "module": "./src/index.js",
+          "moduleName": "./src/index.js",
+          "type": "harmony side effect evaluation",
+          "userRequest": "./style.css",
+          "loc": "55:0-21"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "var content = require(\"!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css\");\n\nif (typeof content === 'string') {\n  content = [[module.id, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = require(\"!../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (module.hot) {\n  if (!content.locals) {\n    module.hot.accept(\n      \"!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css\",\n      function () {\n        var newContent = require(\"!!../node_modules/css-loader/dist/cjs.js!../node_modules/postcss-loader/src/index.js!./style.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.id, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}"
     }
   ],
   "filteredModules": 0,
   "logging": {
     "webpack.buildChunkGraph.visitModules": {
       "entries": [],
-      "filteredEntries": 5,
+      "filteredEntries": 2,
       "debug": false
     }
   },
@@ -456,8 +798,8 @@
               "issuerName": null,
               "issuerPath": null,
               "profile": {
-                "factory": 27,
-                "building": 19
+                "factory": 43,
+                "building": 23
               },
               "failed": false,
               "errors": 0,
@@ -502,14 +844,14 @@
                   "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/html-webpack-plugin/lib/loader.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.html",
                   "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/index.html",
                   "profile": {
-                    "factory": 27,
-                    "building": 19
+                    "factory": 43,
+                    "building": 23
                   }
                 }
               ],
               "profile": {
-                "factory": 3,
-                "building": 416
+                "factory": 2,
+                "building": 242
               },
               "failed": false,
               "errors": 0,
@@ -555,8 +897,8 @@
                   "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/html-webpack-plugin/lib/loader.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.html",
                   "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/index.html",
                   "profile": {
-                    "factory": 27,
-                    "building": 19
+                    "factory": 43,
+                    "building": 23
                   }
                 },
                 {
@@ -564,14 +906,14 @@
                   "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/lodash/lodash.js",
                   "name": "./node_modules/lodash/lodash.js",
                   "profile": {
-                    "factory": 3,
-                    "building": 416
+                    "factory": 2,
+                    "building": 242
                   }
                 }
               ],
               "profile": {
-                "factory": 46,
-                "building": 1
+                "factory": 370,
+                "building": 5
               },
               "failed": false,
               "errors": 0,
@@ -617,8 +959,8 @@
                   "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/html-webpack-plugin/lib/loader.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.html",
                   "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/index.html",
                   "profile": {
-                    "factory": 27,
-                    "building": 19
+                    "factory": 43,
+                    "building": 23
                   }
                 },
                 {
@@ -626,14 +968,14 @@
                   "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/lodash/lodash.js",
                   "name": "./node_modules/lodash/lodash.js",
                   "profile": {
-                    "factory": 3,
-                    "building": 416
+                    "factory": 2,
+                    "building": 242
                   }
                 }
               ],
               "profile": {
-                "factory": 46,
-                "building": 1
+                "factory": 370,
+                "building": 5
               },
               "failed": false,
               "errors": 0,
@@ -690,8 +1032,8 @@
           "issuerName": null,
           "issuerPath": null,
           "profile": {
-            "factory": 27,
-            "building": 19
+            "factory": 43,
+            "building": 23
           },
           "failed": false,
           "errors": 0,
@@ -736,14 +1078,14 @@
               "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/html-webpack-plugin/lib/loader.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.html",
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/index.html",
               "profile": {
-                "factory": 27,
-                "building": 19
+                "factory": 43,
+                "building": 23
               }
             }
           ],
           "profile": {
-            "factory": 3,
-            "building": 416
+            "factory": 2,
+            "building": 242
           },
           "failed": false,
           "errors": 0,
@@ -789,8 +1131,8 @@
               "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/html-webpack-plugin/lib/loader.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.html",
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/index.html",
               "profile": {
-                "factory": 27,
-                "building": 19
+                "factory": 43,
+                "building": 23
               }
             },
             {
@@ -798,14 +1140,14 @@
               "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/lodash/lodash.js",
               "name": "./node_modules/lodash/lodash.js",
               "profile": {
-                "factory": 3,
-                "building": 416
+                "factory": 2,
+                "building": 242
               }
             }
           ],
           "profile": {
-            "factory": 46,
-            "building": 1
+            "factory": 370,
+            "building": 5
           },
           "failed": false,
           "errors": 0,
@@ -851,8 +1193,8 @@
               "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/html-webpack-plugin/lib/loader.js!/Users/wangjing90/Documents/wj-vue/webpack-D/src/index.html",
               "name": "./node_modules/html-webpack-plugin/lib/loader.js!./src/index.html",
               "profile": {
-                "factory": 27,
-                "building": 19
+                "factory": 43,
+                "building": 23
               }
             },
             {
@@ -860,14 +1202,14 @@
               "identifier": "/Users/wangjing90/Documents/wj-vue/webpack-D/node_modules/lodash/lodash.js",
               "name": "./node_modules/lodash/lodash.js",
               "profile": {
-                "factory": 3,
-                "building": 416
+                "factory": 2,
+                "building": 242
               }
             }
           ],
           "profile": {
-            "factory": 46,
-            "building": 1
+            "factory": 370,
+            "building": 5
           },
           "failed": false,
           "errors": 0,

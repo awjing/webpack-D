@@ -16,11 +16,36 @@ const devConfig = {
       '/api': 'http://localhost:3000'
     }
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          // 执行顺序：从下到上，从右到左
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2
+            }
+          },
+          'sass-loader',
+          'postcss-loader'
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          // 执行顺序：从下到上，从右到左
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ]
+      }
+    ]
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
-  optimization: {
-    usedExports: true
-  }
+  ]
 }
   module.exports = merge(commonConfig, devConfig)

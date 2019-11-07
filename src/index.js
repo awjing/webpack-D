@@ -54,19 +54,20 @@
 // 异步方式
 // async function getComponent () {
 //   const {default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash')
-  
+//   const element = document.createElement('div')
+//   element.innerHTML = _.join(['wang', 'jing'], '-')
 //   return element
 // }
 
-// getComponent().then(element => {
-//   document.body.appendChild(element)
+// document.addEventListener('click', () => {
+//   getComponent().then(element => {
+//     document.body.appendChild(element)
+//   })
 // })
-
-document.addEventListener('click', () => {
-  import(/* webpackPrefetch: true */ './click.js').then(({default: func}) => {
-    func()
-  })
-})
 
 // import test from './test.js'
 // console.log(test.name)
+
+import './style.css'
+import './style1.css'
+console.log('fgh')
