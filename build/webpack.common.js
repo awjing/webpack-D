@@ -99,27 +99,27 @@ module.exports = {
   optimization: {
     splitChunks: { // 不进行配置会有默认项
       chunks: 'all',
-      minSize: 30000, // lodash 1Mb
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
-      automaticNameMaxLength: 30,
-      name: true,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10, // 数值越大优先级越高
-          // name: `chunk-vendors`,
-          // chunks: 'initial'
-        },
-        default: {
-          priority: -20,
-          reuseExistingChunk: true, // 一个模块被打包过将不再打包，会复用之前打包过的文件
-          // name: `chunk-common`,
-          // chunks: 'initial'
-        }
-      }
+      // minSize: 30000, // lodash 1Mb
+      // minChunks: 1,
+      // maxAsyncRequests: 5,
+      // maxInitialRequests: 3,
+      // automaticNameDelimiter: '~',
+      // automaticNameMaxLength: 30,
+      // name: true,
+      // cacheGroups: {
+      //   vendors: {
+      //     test: /[\\/]node_modules[\\/]/,
+      //     priority: -10, // 数值越大优先级越高
+      //     // name: `chunk-vendors`,
+      //     // chunks: 'initial'
+      //   },
+      //   default: {
+      //     priority: -20,
+      //     reuseExistingChunk: true, // 一个模块被打包过将不再打包，会复用之前打包过的文件
+      //     // name: `chunk-common`,
+      //     // chunks: 'initial'
+      //   }
+      // }
     }
   }
 }
