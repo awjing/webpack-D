@@ -2,6 +2,8 @@ const path = require('path')
 // html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
 const HtmlWebpackplugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const webpack = require('webpack')
+
 // plugin 可以在webpack运行到某一时刻帮你做一些事情
 
 module.exports = {
@@ -10,8 +12,6 @@ module.exports = {
   },
   output: {
     // publicPath: '',   // 添加公共地址--例：CDN等
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../dist')
   },
   module: {
@@ -19,8 +19,12 @@ module.exports = {
       { 
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: { // 由于代码太多，可以在.babelrc中进行配置
+        use: [{
+          loader: 'babel-loader'
+        }, {
+          loader: 'imports-loader?this=>window'
+        }],
+        // options: { // 由于代码太多，可以在.babelrc中进行配置
           // 业务代码时使用presets并引入polyfill，polyfill会污染全局环境
           // presets: [['@babel/preset-env'], {
           //   target: {
@@ -37,7 +41,7 @@ module.exports = {
           //   regenerator: true,
           //   useESModules: false
           // }]]
-        }
+        // }
       },
       {
         test: /\.(jpg|png|gif)$/,
@@ -72,8 +76,15 @@ module.exports = {
     // new CleanWebpackPlugin({
     //   cleanOnceBeforeBuildPatterns: ['../dist'],
     // })  -- 未解决问题 --
+    new webpack.ProvidePlugin({ // 发现模块里面用了$字符串，会自动引入jquery
+      $: 'jquery',
+      _join: ['lodash', 'join']
+    })
   ],
   optimization: {
+    runtimeChunk: { // 老版本代码没有改变hash也会改变，
+      name: 'runtime'
+    },
     usedExports: true,
     splitChunks: { // 不进行配置会有默认项
       chunks: 'all',
@@ -88,7 +99,7 @@ module.exports = {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10, // 数值越大优先级越高
-          // name: `chunk-vendors`,
+          name: `vendors`,
           // chunks: 'initial'
         },
         default: {
@@ -99,5 +110,6 @@ module.exports = {
         }
       }
     }
-  }
+  },
+  performance: false
 }

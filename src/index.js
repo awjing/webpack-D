@@ -68,6 +68,17 @@
 // import test from './test.js'
 // console.log(test.name)
 
-import './style.css'
-import './style1.css'
-console.log('fgh')
+// import './style.css'
+// import './style1.css'
+// console.log('fgh')
+
+// import _ from 'lodash'
+// import $ from 'jquery'
+// import { ui } from './jquery.ui.js'
+
+// ui()
+// const dom = $('<div>')
+// dom.html(_.join(['wang', 'jing'], '--'))
+// $('body').append(dom)
+
+console.log(this === window)

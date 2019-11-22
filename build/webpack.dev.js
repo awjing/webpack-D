@@ -16,6 +16,10 @@ const devConfig = {
       '/api': 'http://localhost:3000'
     }
   },
+  output: {
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+  },
   module: {
     rules: [
       {
