@@ -8,9 +8,9 @@
   "scripts": {
     "bundle": "webpack",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-    "dev-build": "rimraf dist && webpack --profile --json > stats.json --config ./build/webpack.dev.js",
-    "build": "rimraf dist && webpack --config ./build/webpack.prod.js",
+    "dev": "webpack-dev-server --config ./build/webpack.common.js",
+    "dev-build": "rimraf dist && webpack --config ./build/webpack.common.js",
+    "build": "rimraf dist && webpack --env.production --config ./build/webpack.common.js",
     "server": "node server.js"
   },
   "repository": {
