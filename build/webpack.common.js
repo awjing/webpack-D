@@ -2,7 +2,6 @@ const path = require('path')
 // html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
 const HtmlWebpackplugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const webpack = require('webpack')
 const merge = require('webpack-merge')
 const devConfig = require('./webpack.dev.js')
 const prodConfig = require('./webpack.prod.js')
@@ -24,8 +23,6 @@ const commonConfig = {
         exclude: /node_modules/,
         use: [{
           loader: 'babel-loader'
-        }, {
-          loader: 'imports-loader?this=>window'
         }],
         // options: { // 由于代码太多，可以在.babelrc中进行配置
           // 业务代码时使用presets并引入polyfill，polyfill会污染全局环境
@@ -79,10 +76,6 @@ const commonConfig = {
     // new CleanWebpackPlugin({
     //   cleanOnceBeforeBuildPatterns: ['../dist'],
     // })  -- 未解决问题 --
-    new webpack.ProvidePlugin({ // 发现模块里面用了$字符串，会自动引入jquery
-      $: 'jquery',
-      _join: ['lodash', 'join']
-    })
   ],
   optimization: {
     runtimeChunk: { // 老版本代码没有改变hash也会改变，
