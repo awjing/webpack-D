@@ -81,14 +81,19 @@
 // dom.html(_.join(['wang', 'jing'], '--'))
 // $('body').append(dom)
 
-console.log('helloword')
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-    .then(egistration => {
-      console.log('service-worker register')
-    }).catch(error => {
-      console.log('service-worker register error')
-    })
-  })
-}
+// console.log('helloword')
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/service-worker.js')
+//     .then(egistration => {
+//       console.log('service-worker register')
+//     }).catch(error => {
+//       console.log('service-worker register error')
+//     })
+//   })
+// }
+
+import axios from 'axios'
+axios.get('/react/api/header.json').then((res) => {
+  console.log(res)
+})

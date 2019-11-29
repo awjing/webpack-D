@@ -10,8 +10,20 @@ const devConfig = {
     contentBase: './dist',
     // open: true, // 自动打开浏览器并访问服务器地址
     hot: true,
+    historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/react/api': {
+        target: 'http://www.dell-lee.com',
+        secure: false,
+        pathRewrite: {
+          // 'header.json': 'demo.json'
+        },
+        changeOrigin: true,
+        headers: {
+          host: 'dell-lee.com',
+          cookie: 'dasdsa'
+        }
+      }
     }
   },
   output: {
