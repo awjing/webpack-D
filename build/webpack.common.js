@@ -12,6 +12,9 @@ const commonConfig = {
   entry: {
     main: './src/index.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   output: {
     // publicPath: '',   // 添加公共地址--例：CDN等
     path: path.resolve(__dirname, '../dist')
@@ -19,7 +22,7 @@ const commonConfig = {
   module: {
     rules: [
       { 
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [{
           loader: 'babel-loader'

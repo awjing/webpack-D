@@ -93,7 +93,25 @@
 //   })
 // }
 
-import axios from 'axios'
-axios.get('/react/api/header.json').then((res) => {
-  console.log(res)
-})
+// import axios from 'axios'
+// axios.get('/react/api/header.json').then((res) => {
+//   console.log(res)
+// })
+
+// webpack性能优化  resolve的配置
+import React, { Component } from 'react'
+import ReactDom from 'react-dom'
+import Child from './child'
+
+class App extends Component {
+  render () {
+    return (
+      <div>
+        <div>This is App</div>
+        <Child />
+      </div>
+    )
+  }
+}
+
+ReactDom.render(<App />, document.getElementById('root'))
