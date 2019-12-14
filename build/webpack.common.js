@@ -1,10 +1,36 @@
 const path = require('path')
+const fs = require('fs')
 // html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
 const HtmlWebpackplugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const merge = require('webpack-merge')
 const devConfig = require('./webpack.dev.js')
 const prodConfig = require('./webpack.prod.js')
+const webpack = require('webpack')
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
+const plugins = [
+  new HtmlWebpackplugin({
+    template: 'src/index.html'
+  })
+]
+
+const files = fs.readdirSync(path.resolve(__dirname, '../dll'))
+files.forEach(file => {
+  if (/.*\.dll.js/.test(file)) {
+    plugins.push(
+      new AddAssetHtmlWebpackPlugin({
+        filepath: path.resolve(__dirname, '../dll', file)
+      })
+    )
+  }
+  if (/.*\.manifest.json/.test(file)) {
+    plugins.push(
+      new webpack.DllReferencePlugin({
+        manifest: path.resolve(__dirname, '../dll', file)
+      })
+    )
+  }
+})
 
 // plugin 可以在webpack运行到某一时刻帮你做一些事情
 
@@ -72,14 +98,12 @@ const commonConfig = {
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackplugin({
-      template: 'src/index.html'
-    }),
-    // new CleanWebpackPlugin({
-    //   cleanOnceBeforeBuildPatterns: ['../dist'],
-    // })  -- 未解决问题 --
-  ],
+  // plugins: [
+  //   // new CleanWebpackPlugin({
+  //   //   cleanOnceBeforeBuildPatterns: ['../dist'],
+  //   // })  -- 未解决问题 --
+  // ],
+  plugins: plugins,
   optimization: {
     runtimeChunk: { // 老版本代码没有改变hash也会改变，
       name: 'runtime'

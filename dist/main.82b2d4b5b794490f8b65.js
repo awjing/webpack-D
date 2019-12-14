@@ -1,7 +1,16 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],[
-/* 0 */
-/***/ (function(module, exports) {
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
+/***/ 4:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_2__);
 // import './style.css'
 // var btn = document.createElement('button')
 // btn.innerHTML = '新增'
@@ -66,17 +75,35 @@
 // const dom = $('<div>')
 // dom.html(_.join(['wang', 'jing'], '--'))
 // $('body').append(dom)
-console.log('helloword');
+// console.log('helloword')
+// if ('serviceWorker' in navigator) {
+//   window.addEventListener('load', () => {
+//     navigator.serviceWorker.register('/service-worker.js')
+//     .then(egistration => {
+//       console.log('service-worker register')
+//     }).catch(error => {
+//       console.log('service-worker register error')
+//     })
+//   })
+// }
+// import axios from 'axios'
+// axios.get('/react/api/header.json').then((res) => {
+//   console.log(res)
+// })
+// webpack性能优化  resolve的配置
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js').then(egistration => {
-      console.log('service-worker register');
-    }).catch(error => {
-      console.log('service-worker register error');
-    });
-  });
+
+
+
+class App extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
+  render() {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, lodash__WEBPACK_IMPORTED_MODULE_2___default.a.join(['This', 'is', 'App'], ' ')));
+  }
+
 }
 
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(App, null), document.getElementById('root'));
+
 /***/ })
-],[[0,1]]]);
+
+},[[4,1,2]]]);
