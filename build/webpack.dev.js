@@ -1,7 +1,9 @@
 
 const webpack = require('webpack')
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webpack.common')
 
-const devConfig = {
+const devConfig = merge (baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map', // development
   // devtool: 'cheap-module-source-map', // production
@@ -61,5 +63,6 @@ const devConfig = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
-}
-  module.exports = devConfig
+})
+
+module.exports = devConfig

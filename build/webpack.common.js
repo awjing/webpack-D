@@ -2,41 +2,48 @@ const path = require('path')
 const fs = require('fs')
 // html-webpack-plugin 打包结束后会自动生成一个html文件，并把打包生成的js文件自动引入到这个html文件中
 const HtmlWebpackplugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const merge = require('webpack-merge')
-const devConfig = require('./webpack.dev.js')
-const prodConfig = require('./webpack.prod.js')
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack')
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
-const plugins = [
-  new HtmlWebpackplugin({
-    template: 'src/index.html'
-  })
-]
 
-const files = fs.readdirSync(path.resolve(__dirname, '../dll'))
-files.forEach(file => {
-  if (/.*\.dll.js/.test(file)) {
+const makePlugins = (configs) => {
+  const plugins = []
+  Object.keys(configs.entry).forEach(item => {
     plugins.push(
-      new AddAssetHtmlWebpackPlugin({
-        filepath: path.resolve(__dirname, '../dll', file)
+      new HtmlWebpackplugin({
+        template: 'src/index.html',
+        filename: `${item}.html`,
+        chunks: ['runtime', 'vendors', item]
       })
     )
-  }
-  if (/.*\.manifest.json/.test(file)) {
-    plugins.push(
-      new webpack.DllReferencePlugin({
-        manifest: path.resolve(__dirname, '../dll', file)
-      })
-    )
-  }
-})
+  })
+
+  const files = fs.readdirSync(path.resolve(__dirname, '../dll'))
+  files.forEach(file => {
+    if (/.*\.dll.js/.test(file)) {
+      plugins.push(
+        new AddAssetHtmlWebpackPlugin({
+          filepath: path.resolve(__dirname, '../dll', file)
+        })
+      )
+    }
+    if (/.*\.manifest.json/.test(file)) {
+      plugins.push(
+        new webpack.DllReferencePlugin({
+          manifest: path.resolve(__dirname, '../dll', file)
+        })
+      )
+    }
+  })
+  return plugins
+}
 
 // plugin 可以在webpack运行到某一时刻帮你做一些事情
 
-const commonConfig = {
+const configs = {
   entry: {
-    main: './src/index.js'
+    index: './src/index.js',
+    list: './src/list.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -52,25 +59,7 @@ const commonConfig = {
         exclude: /node_modules/,
         use: [{
           loader: 'babel-loader'
-        }],
-        // options: { // 由于代码太多，可以在.babelrc中进行配置
-          // 业务代码时使用presets并引入polyfill，polyfill会污染全局环境
-          // presets: [['@babel/preset-env'], {
-          //   target: {
-          //     chrome: "67" // 设置在chrome67以上的代码使用promise，因此打包时候不会转es5，因为chorme已经支持
-          //   },
-          //   useBuiltIns: 'usage'
-          // }],
-
-          // 库开发使用pugins，plugin-transform-runtime以必报形式注入，不会污染全局环境
-          // plugins: [['@babel/plugin-transform-runtime', {
-          //   absoluteRuntime: false,
-          //   corejs: 2,
-          //   helpers: true,
-          //   regenerator: true,
-          //   useESModules: false
-          // }]]
-        // }
+        }]
       },
       {
         test: /\.(jpg|png|gif)$/,
@@ -98,12 +87,6 @@ const commonConfig = {
       }
     ]
   },
-  // plugins: [
-  //   // new CleanWebpackPlugin({
-  //   //   cleanOnceBeforeBuildPatterns: ['../dist'],
-  //   // })  -- 未解决问题 --
-  // ],
-  plugins: plugins,
   optimization: {
     runtimeChunk: { // 老版本代码没有改变hash也会改变，
       name: 'runtime'
@@ -137,10 +120,6 @@ const commonConfig = {
   performance: false
 }
 
-module.exports = (env) => {
-  if (env && env.production) {
-    return merge(commonConfig, prodConfig)
-  } else {
-    return merge(commonConfig, devConfig)
-  }
-}
+configs.plugins = makePlugins(configs)
+
+module.exports = configs
